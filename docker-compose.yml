@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     networks:
+       - back
+     environment:
+       MYSQL_ROOT_PASSWORD: CHANGE_THIS_TO_YOUR_PASSWORD
+       MYSQL_DATABASE: CHANGE_THIS_TO_YOUR_DB_NAME
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     volumes:
+       - ./build:/var/www/html/wp-content/themes/CHANGE_THIS_TO_YOUR_THEME_NAME
+       - wp_data:/var/www/html
+     ports:
+       - "8000:80"
+     networks:
+       - front
+       - back
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: root
+       WORDPRESS_DB_PASSWORD: CHANGE_THIS_TO_YOUR_PASSWORD
+       WORDPRESS_DB_NAME: CHANGE_THIS_TO_YOUR_DB_NAME
+
+   phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    networks:
+      - back
+    ports:
+      - 8001:80
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: CHANGE_THIS_TO_YOUR_PASSWORD
+      PMA_HOST: db
+
+volumes:
+  db_data:
+    driver: local
+  wp_data:
+networks:
+  front:
+  back:

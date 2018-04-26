@@ -1,0 +1,26 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}><!--<![endif]-->
+
+<head>
+  {% include 'head.twig' %}
+</head>
+
+<body class="{{body_class}}" data-template="base.twig">
+  {% include 'nav.twig' %}
+
+  <main id="main" role="main">
+    {% block content %}
+    {% include '404.twig' %}
+    {% endblock %}
+  </main>
+
+  {% include 'footer.twig' %}
+
+  {% include 'scripts.twig' %}
+
+  {{ function('wp_footer') }}
+</body>
+</html>

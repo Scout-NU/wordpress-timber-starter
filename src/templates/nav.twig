@@ -1,0 +1,36 @@
+<header class="header" role="banner">
+  {% block header %}
+  <nav class="nav" role="navigation">
+    <div class="nav__home">
+      <a class="" href="/" rel="home">{{site.name}}</a>
+    </div>
+    <ul class="nav__menu">
+      {% for item in topNav.get_items %}
+      <li class="nav__menu__item">
+        <a class="nav__menu__link {{ item.current ? 'active' : '' }}" href="{{item.get_link}}">
+          <span>{{item.title}}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <button class="hamburger" type="button">
+      <span class="hamburger__box">
+        <span class="hamburger__inner"></span>
+      </span>
+    </button>
+  </nav>
+  <div class="nav__mobile">
+    <img class="lines top" src="{{site.theme.link}}/images/mobile_menu/lines/lines_top.png" alt="lines">
+    <ul>
+      {% for item in mobileNav.get_items %}
+      <li class="nav__menu__item">
+        <a class="nav__menu__link {{ item.current ? 'active' : '' }}" href="{{item.get_link}}">
+          <span>{{item.title}}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <img class="lines bottom" src="{{site.theme.link}}/images/mobile_menu/lines/lines_bottom.png" alt="lines">
+  </div>
+  {% endblock %}
+</header>

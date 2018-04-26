@@ -1,0 +1,62 @@
+{
+  "name": "wordpress-timber-starter",
+  "version": "0.1.0",
+  "description": "Starter Wordpress theme using gulp, Sass, and Timber",
+  "main": "gulpconfig.js",
+  "homepage": "https://github.com/Scout-NU/wordpress-timber-starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scout-NU/wordpress-timber-starter.git"
+  },
+  "author": {
+    "name": "Adam Markon",
+    "email": "amarkon895@gmail.com",
+    "twitter": "@amarkon88"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Scout-NU/wordpress-timber-starter/issues"
+  },
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "precommit": "lint-staged",
+    "deploy": "./bin/deploy.sh",
+    "start": "docker-compose start && gulp watch",
+    "stop": "docker-compose stop"
+  },
+  "devDependencies": {
+    "@nuscout/eslint-config": "^0.2.1",
+    "autoprefixer": "8.0.0",
+    "browser-sync": "2.23.6",
+    "del": "3.0.0",
+    "eslint": "4.17.0",
+    "gulp": "3.9.1",
+    "gulp-changed": "3.2.0",
+    "gulp-concat": "2.6.1",
+    "gulp-cssnano": "2.1.2",
+    "gulp-flatten": "0.4.0",
+    "gulp-imagemin": "4.1.0",
+    "gulp-load-plugins": "1.5.0",
+    "gulp-postcss": "7.0.1",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "3.1.0",
+    "gulp-sourcemaps": "2.6.4",
+    "gulp-uglify": "3.0.0",
+    "gulp-util": "3.0.8",
+    "html5-history-api": "4.2.8",
+    "merge-stream": "1.0.1",
+    "node-sass": "4.7.2",
+    "normalize.css": "8.0.0",
+    "prettier": "1.10.2",
+    "require-dir": "1.0.0",
+    "spin.js": "3.1.0",
+    "timeago": "1.6.1",
+    "wp-ajax-page-loader": "0.3.1"
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,md}": ["prettier --write", "git add"]
+  },
+  "dependencies": {
+    "@nuscout/prettier-config": "^0.1.2"
+  }
+}

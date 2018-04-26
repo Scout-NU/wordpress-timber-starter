@@ -1,0 +1,20 @@
+// ==== STYLES ==== //
+/*!
+Theme Name: "CHANGE_THIS_TO_YOUR_THEME_NAME"
+Theme URI:
+Author: "CHANGE_THIS_TO_YOUR_NAME"
+Description: "Wordpress starter theme with Timber, developed by NU Scout"
+Version: 1.0.0
+*/
+
+// Normalize: make browsers render things more consistently
+@import 'normalize';
+
+@import 'variables';
+@import 'base';
+
+// Components: Modular elements styles
+@import 'components/nav';
+
+// Pages: Import every page that has its own specific styles
+@import 'pages/home';
